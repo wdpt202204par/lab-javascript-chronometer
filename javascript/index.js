@@ -56,10 +56,37 @@ function setResetBtn() {
 
 // Start/Stop Button
 btnLeftElement.addEventListener('click', () => {
-  // ... your code goes here
+  if (btnLeftElement.innerHTML === "START") { // Demarrage du chrono
+    btnLeftElement.setAttribute("class", "btn stop")
+    btnLeftElement.innerHTML = "STOP"
+    chronometer.start(function () { // Mise a jour du chrono sur la page HTML
+
+    })
+  } else { // Arret du chrono
+    btnLeftElement.setAttribute("class", "btn start")
+    btnLeftElement.innerHTML = "START"
+    chronometer.stop()
+  }
+
 });
 
 // Reset/Split Button
 btnRightElement.addEventListener('click', () => {
-  // ... your code goes here
+
 });
+
+
+
+
+
+
+
+
+
+
+
+/*var change =
+  document.getElementById("btnLeft");
+if (change.innerHTML == "start"); {
+  change.innerHTML = "stop";
+}*/
