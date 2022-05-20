@@ -15,6 +15,7 @@ const splitsElement = document.getElementById('splits');
 
                                         // [DEBUG] An extra counter ('debug chrono') is launched simultaneously with
                                         // 'chronometer' to control its proper functionning
+                                        // (printed in the "Debug" section of chronometer HTML document)
                                         let debugChronoId; 
                                         let debugChrono = 0;
 
