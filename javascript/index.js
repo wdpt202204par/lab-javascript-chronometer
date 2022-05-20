@@ -13,9 +13,10 @@ const milDecElement = document.getElementById('milDec');
 const milUniElement = document.getElementById('milUni');
 const splitsElement = document.getElementById('splits');
 
-// [DEBUG] An extra counter ('debug chrono') is launched in parallel of 'chronometer' to control its proper functionning
-let debugChronoId; 
-let debugChrono = 0;
+                                        // [DEBUG] An extra counter ('debug chrono') is launched simultaneously with
+                                        // 'chronometer' to control its proper functionning
+                                        let debugChronoId; 
+                                        let debugChrono = 0;
 
 function printTime() {
   printMinutes();
@@ -101,7 +102,7 @@ btnLeftElement.addEventListener('click', () => {
 
     chronometer.start(printTime);
 
-                                        // [DEBUG] Starting a debugging chrono
+                                        // [DEBUG] Starting debugging chrono
                                         debugChronoId   = setInterval(() => debugChrono++, 1);
 
   // Stopping the chronometer
