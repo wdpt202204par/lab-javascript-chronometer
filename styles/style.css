@@ -49,6 +49,22 @@ body {
   text-align: right;
 }
 
+/* [DEBUG] *******************/ 
+  #debug-container {
+    font-size: 20px;
+    font-weight: 100;
+    position: absolute;
+    right: 50px;
+    text-align: right;
+  }
+  
+  #debug-container li {
+    padding-bottom: 5px;
+    text-align: right;
+    list-style-type: none;
+  }
+/*****************************/ 
+
 #milliseconds {
   font-size: 36px;
   position: absolute;
