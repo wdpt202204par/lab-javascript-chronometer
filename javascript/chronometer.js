@@ -1,40 +1,44 @@
 class Chronometer {
   constructor() {
-    this.currentTime = 0;
-    this.intervalId = null;
+    this.currentTime  = 0;
+    this.intervalId   = null;
   }
 
   start(callback) {
-    if (arguments.length > 0) {
-      callback();
-    }
-    
     this.intervalId = setInterval(() => {
       this.currentTime++;
-    }, 1000);
+      if (callback) callback();
+    }, 1);
   }
 
   getMinutes() {
-    const minutes = this.currentTime / 60;
+    const minutes = this.currentTime / (60 * 1000);   // '* 1000' because of Iteration #5 (counting in milliseconds instead of seconds)
     const rounded = Math.floor(minutes);
 
     return rounded;
-
   }
 
   getSeconds() {
-    const currentSeconds = this.currentTime % 60;
+    const currentSeconds = Math.floor(this.currentTime / 1000) % 60; // '/ 1000': same as getMinutes()
 
     return currentSeconds;
   }
 
+  // Extra function to get hundredths of seconds (iteration #5)
+  getHundredths() {
+    const currentHundredthOfSecond = Math.floor(this.currentTime / 10) % 100;
+
+    return currentHundredthOfSecond;
+  }
+
   computeTwoDigitNumber(value) {
-    let result = String(value)
+    let result = String(value);
+
     if (result.length === 1){
       return `0${result}`;
     }
 
-    return String(value)
+    return String(value);
   }
 
   stop() {
@@ -52,9 +56,6 @@ class Chronometer {
     return `${strMinutes}:${strSeconds}`;
   }
 }
-
-document.querySelectorAll(".number").forEach(element => element.innerHTML = "X");
-
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
